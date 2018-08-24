@@ -1,0 +1,6 @@
+light sky: Photo by chuttersnap on Unsplash
+dark sky: Photo by Breno Machado on Unsplash
+light city: Photo by Ruslan Bardash on Unsplash
+dark city: Photo by Nikolas Behrendt on Unsplash
+light water: Photo by Tom Barrett on Unsplash
+dark water: Photo by Patrick Perkins on Unsplash

@@ -1,0 +1,245 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+#body {
+	font-family: 'Pontano Sans', sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+#body.dark-mode {
+	background-color: black;
+}
+#body.light-mode {
+	background-color: #F7F7F5;
+}
+
+
+/*
+major content container styles
+*/
+#sky {
+	background-size: cover;
+	z-index: 0;
+	opacity: 0;
+	transition: all .5s;
+}
+#sky.dark-mode {
+	background-image: url("../images/dark_sky.jpg");
+	background-repeat: no-repeat;
+	color: white;
+}
+#sky.light-mode {
+	background-image: url("../images/light_sky.jpg");
+	color: black;
+	opacity: 0;
+}
+
+#mid_banner {
+	position: absolute;
+	bottom: -30%;
+	min-height: 30%;
+	min-width: 100%;
+	z-index: 20;
+	opacity: 0;
+	transition: all .5s;
+}
+#mid_banner.dark-mode {
+	background-color: #494949;
+	color: white;
+}
+#mid_banner.light-mode {
+	background-color: #CAE4F9;
+	color: black;
+}
+
+#city {
+	background-size: cover;
+	z-index: 10;
+	opacity: 0;
+	transition: all .5s;
+}
+#city.dark-mode {
+	background-image: url("../images/dark_city.jpg");
+	color: white;
+}
+#city.light-mode {
+	background-image: url("../images/light_city.jpg");
+	color: black;
+}
+
+
+/*
+top content styles
+*/
+.navbar {
+	display: grid;
+	grid-template-columns: 85% 5% 5% 5%;
+	grid-row-gap: 1em;
+	margin: 0 1em 1em 1em;
+}
+.scroll_projects {
+	grid-column: 2/3;
+}
+#light-dark_toggle {
+	width: 100%;
+	height: 100%;
+	grid-column: 3/4;
+}
+.light-dark_toggle {
+}
+
+.intro {
+	padding: 10% 2% 5% 2%;
+	margin: 5% 2% 3% 2%;
+	display: grid;
+	grid-template-columns: 30% 25% 45%;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas:
+		"prof_pic . bio"
+		". . bio";
+}
+.profile_pic {
+	padding: 1em;
+	grid-area: prof_pic;
+	background-color: rgba(150, 150, 150, .25);
+	border-radius: .75em;
+}
+.bio {
+	padding: 1em;
+	grid-area: bio;
+	background-color: rgba(150, 150, 150, .25);
+	border-radius: .75em;
+	line-height: 175%;
+}
+.bio h2 {
+	font-size: 2em;
+	line-height: 150%;
+}
+
+
+/*
+middle content styles
+*/
+.mid_content {
+	padding: 2%;
+}
+.knowledge {
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	display: grid;
+	grid-template-columns: 25% 25% 25%;
+	grid-gap: 3em;
+}
+#education {
+	border-right: .05em solid white;
+	padding: 10%;
+	line-height: 175%;
+}
+#languages {
+	border-left: .05em solid white;
+	border-right: .05em solid white;
+	padding: 10%;
+	line-height: 175%;
+}
+#tools {
+	border-left: .05em solid white;
+	padding: 10%;
+	line-height: 175%;
+}
+
+
+/*
+bottom content styles
+*/
+.experience h2 {
+	padding: 5% 0em 0em 0em;
+	margin: 5% 0em 0em 0em;
+	text-align: center;
+	letter-spacing: .25em;
+	font-size: 2.5em;
+}
+.projects {
+	justify-content: center;
+	padding: 5% 0em 5% 0em;
+	display: grid;
+	grid-template-columns: 3% 3% 3% 3% 3% 3% 3% 3% 3% 3% 3% 3%;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas:
+		". art_mngr . eventfull . scraper"
+		"cash_reg . roll_call . wrd_srch .";
+	grid-column-gap: 2.5em;
+	grid-row-gap: 6em;
+}
+.projects div {
+	height: 15em;
+	width: 20em;
+	min-height: 5em;
+	min-width: 6em;
+	text-align: center;
+	overflow: hidden;
+	border: .05em white solid;
+	border-radius: .75em;
+	font-size: .6em;
+}
+.projects img {
+	min-height: 100%;
+	min-width: 100%;
+	max-height: 100%;
+	max-width: 100%;
+	border-radius: .5em;
+	transition: all 2s;
+}
+.projects img:hover {
+	transform: scale(1.25);
+	filter: brightness(50%);
+	border-radius: .75em;
+}
+.projects_top_row {
+	transform: translateX(30%) scale(.9);
+	opacity: .05;
+	transition: all 1.5s;
+}
+.projects_bttm_row {
+	transform: translateX(-30%) scale(.9);
+	opacity: .05;
+	transition: all 1.5s;
+}
+.active {
+	transform: translateX(0%) translateY(0%) scale(1);
+	opacity: 1;
+}
+#article_manager {
+	grid-area: art_mngr;
+	grid-column: 2/4;
+}
+#eventfull {
+	grid-area: eventfull;
+	grid-column: 6/8;
+}
+#web_scraper {
+	grid-area: scraper;
+	grid-column: 10/12;
+	background-color: rgba(85, 85, 85, .7);
+}
+#cash_register {
+	grid-area: cash_reg;
+	grid-column: 1/3;
+}
+#roll_call {
+	grid-area: roll_call;
+	grid-column: 5/7;
+}
+#word_search {
+	grid-area: wrd_srch;
+	grid-column: 9/11;
+	background-color: rgb(175, 175, 175);
+}
+
+
+@media screen and (min-width: 736px) {
+
+
+}
