@@ -6,7 +6,7 @@
 .hide {
 	transform: translateX(5%);
 	opacity: 0;
-	transition: transform .3s, opacity .2s;
+	transition: opacity 15s, transform 30s;
 }
 
 #body {
@@ -327,7 +327,7 @@ bottom content styles
 	border: .05em white solid;
 	border-radius: .75em;
 }
-.form {
+#form {
 	display: grid;
 	grid-template-columns: 25% 25% 50%;
 	grid-template-rows: 1fr 1fr 1fr 4fr 1fr;
@@ -336,8 +336,8 @@ bottom content styles
 	". header ."
 	"name . email"
 	". subject ."
-	" .message ."
-	". submit .";
+	". message ."
+	"submit prompt prompt";
 	min-width: 30%;
 	min-height: 15%;
 }
@@ -382,6 +382,17 @@ bottom content styles
 #f_submit:hover {
 	background-color: #2D76EF;
 }
+#f_prompt {
+	grid-area: prompt;
+	grid-column: 3/4;
+	transform: translateX(0%) translateY(0%);
+}
+.f_success{
+	color: #4FC122;
+}
+.f_error{
+	color: #E03131;
+}
 
 footer {
 	padding: .5% 0 .5% 0;
@@ -419,7 +430,7 @@ animate element reveal
 }
 
 
-@media screen and (min-width: 1920px && min-height: 1080px) {
+@media screen and (min-width: 1920px min-height: 1080px) {
 
 
 }

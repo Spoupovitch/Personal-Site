@@ -21,6 +21,7 @@ function moveLoadScreen() {
 			loadScreen.classList.add('remove');
 		});
 		document.documentElement.style.overflowY = 'visible';
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
 	}, loadTime-00);
 	animateBio();
 }
@@ -155,3 +156,60 @@ function parallaxScroll() {
 	
 	$('#mid_banner').css('transform', 'translateY(' + -(wScroll / (14610 / $(window).height()) ) + 'px)');
 }
+
+//email handler
+$(function() {
+	var form = $('#form');
+	var formPrompt = $('#f_prompt');
+
+	$(form).submit(function(event) {
+		//stop form submission
+		event.preventDefault();
+	
+		var formData = $(form).serialize();
+		$.ajax({
+			type: 'POST',
+			url: 'assets/php/email.php',
+			data: formData
+		})
+		.done(function(res) {
+			$(formPrompt).removeClass('f_error');
+			$(formPrompt).addClass('f_success');
+			$(formPrompt).addClass('hide');
+			
+			//clear prompt for reuse
+			setTimeout(function(){
+				$(formPrompt).text('');
+				$(formPrompt).removeClass('hide');
+			}, 15000);
+
+			$(formPrompt).text(res);
+				
+			//clear form data
+			$('#f_name').val('');
+			$('#f_email').val('');
+			$('#f_subject').val('');
+			$('#f_message').val('');
+		})
+		.fail(function(data) {
+			$(formPrompt).addClass('f_error');
+			$(formPrompt).removeClass('f_success');
+			$(formPrompt).addClass('hide');
+
+			//set prompt text
+			if (data.responseText !== '') {
+				$(formPrompt).text(data.responseText);
+			}
+			else {
+				$(formPrompt).text('Uh oh! Something went wrong, your message could'
+					+ ' not be sent...');
+			}
+			
+			//clear prompt for reuse
+			setTimeout(function(){
+				$(formPrompt).text('');
+				$(formPrompt).removeClass('hide');
+			}, 15000);
+		});
+	});
+});

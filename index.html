@@ -166,11 +166,10 @@
 
 				<div id="roll_call" class="projects_bttm_row project_tags" onclick="location.href='https://github.com/Spoupovitch/Roll-Call';">
 					<p class="tag_text">
-						Roster Segmentation<br/>
+						Roster Segmentation Website<br/>
 						<br/>
 						HTML CSS<br/>
-						PHP<br/>
-						JavaScript
+						PHP JavaScript
 					</p>
 				</div>
 
@@ -185,16 +184,18 @@
 			</div><!-- end projects container -->
 		</div><!-- end experience container -->
 
+		
 		<div class="form_wrapper">
-			<form class="form" method="post" action="">
+			<form id="form" method="post" action="assets/php/email.php">
 				<h3 id="f_header">
 					Get in touch
 				</h3>
-				<input id="f_name" type="text" name="name" placeholder="Name" />
-				<input id="f_email" type="text" name="email" placeholder="Email" />
+				<input id="f_name" type="text" name="name" placeholder="Name" required/>
+				<input id="f_email" type="text" name="email" placeholder="Email" required/>
 				<input id="f_subject" type="text" name="subject" placeholder="Subject" />
-				<textarea id="f_message" name="message" placeholder="..."></textarea>
-				<input id="f_submit" type="button" name="submit_btn" value="Send"/>
+				<textarea id="f_message" name="message" placeholder="..." required></textarea>
+				<button id="f_submit" type="submit">Send</button>
+				<div id="f_prompt"></div>
 			</form>
 		</div>
 
