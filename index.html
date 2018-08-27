@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -16,17 +17,10 @@
 	<div id="sky" class="light-mode">
 		<div class="navbar">
 
-			<!-- scroll to projects -->
-			<div class="scroll_projects">
-				<i class="far fa-file-code"></i>
-			</div>
-
 			<!-- toggle light/dark theme -->
-			<div class="light-dark_toggle">
-				<button id="light-dark_toggle" title="Toggle dark/light mode" onclick="toggleBG()">
-					<i class="fas fa-sync"></i>
-				</button>
-			</div>
+			<button id="light-dark_btn" title="Toggle dark/light mode" onclick="toggleBG()">
+				<i class="fas fa-sync"></i>
+			</button>
 
 		</div><!-- end navbar -->
 
@@ -46,27 +40,35 @@
 			</div>
 
 			<div class="bio">
-				<h2>
-					Web Developer
-				</h2>
-				<p>
-					When developing on the front end, I use JavaScript and its libraries
-					to bring pages to life.&nbsp On the backend, I've worked with
-					databases and RESTful web services to facilitate data storage and
-					manipulation.&nbsp I enjoy the process of design whether it's on the
-					server or the client.
-				</p>
+				<div id="bio_web_1" class="hide">
+					<h2>
+						Web Developer
+					</h2>
+				</div>
+				<div id="bio_web_2" class="hide">
+					<p>
+						When developing on the front end, I use JavaScript and its libraries
+						to bring pages to life.&nbsp On the backend, I've worked with
+						databases and RESTful web services to facilitate data storage and
+						manipulation.&nbsp I enjoy the process of design whether it's on the
+						server or the client.
+					</p>
+				</div>
 				<br/>
-				<h2>
-					Software Engineer
-				</h2>
-				<p>
-					Ever since being introduced to object-oriented design through Java,
-					I've continued to grow my repertoire of languages.&nbsp I always seek
-					to employ mathematical and algorithmic tools wherever possible to
-					optimize my codebase.
-				</p>
-			</div>
+				<div id="bio_swe_1" class="hide">
+					<h2>
+						Software Engineer
+					</h2>
+				</div>
+				<div id="bio_swe_2" class="hide">
+					<p>
+						Ever since being introduced to object-oriented design through Java,
+						I've continued to grow my repertoire of languages.&nbsp I always seek
+						to employ mathematical and algorithmic tools wherever possible to
+						optimize my codebase.
+					</p>
+				</div>
+			</div><!-- end bio -->
 
 		</div><!-- end intro section -->
 	</div><!-- end skybox -->
@@ -80,6 +82,7 @@
 					<h3>
 						Education
 					</h3>
+					<br/>
 					<p>
 						University of Central Florida
 					</p>
@@ -91,6 +94,7 @@
 					<h3>
 						Languages
 					</h3>
+					<br/>
 					<p>
 						Java &nbsp C &nbsp Python &nbsp PHP
 					</p>
@@ -102,6 +106,7 @@
 					<h3>
 						Tools
 					</h3>
+					<br/>
 					<p>
 						ReactNative &nbsp MySQL &nbsp jQuery
 					</p>
@@ -123,51 +128,86 @@
 
 			<div class="projects">
 
-				<div id="article_manager" class="projects_top_row">
-					<a href="">
-						<img src="assets/images/article_manager.jpg" />
-					</a>
+				<div id="article_manager" class="projects_top_row project_tags" onclick="location.href='https://github.com/Spoupovitch/UCF-COP4331C-17Fall-0001-T15';">
+					<p class="tag_text">
+						Academic Article Manager App<br/>
+						<br/>
+						Java<br/>
+						Android Dev.
+					</p>
 				</div>
 
-				<div id="eventfull" class="projects_top_row">
-					<a href="">
-						<img src="assets/images/eventfull.jpg" />
-					</a>
+				<div id="eventfull" class="projects_top_row project_tags" onclick="location.href='https://github.com/Spoupovitch/';">
+					<p class="tag_text">
+						Social Media Event Coordination App<br/>
+						<br/>
+						ReactNative<br/>
+						Ruby on Rails
+					</p>
 				</div>
 
-				<div id="web_scraper" class="projects_top_row">
-					<a href="">
-						<img src="assets/images/web_scraper.png" />
-					</a>
+				<div id="web_scraper" class="projects_top_row project_tags" onclick="location.href='https://github.com/Spoupovitch/Word-Freq-Web-Scraper';">
+					<p class="tag_text">
+						Wikipedia Article Scraper<br/>
+						<br/>
+						Python<br/>
+						BeautifulSoup
+					</p>
 				</div>
 
-				<div id="cash_register" class="projects_bttm_row">
-					<a href="">
-						<img src="assets/images/cash_register.jpg" />
-					</a>
+				<div id="cash_register" class="projects_bttm_row project_tags" onclick="location.href='https://github.com/Spoupovitch/CashReg';">
+					<p class="tag_text">
+						Cash Register Program<br/>
+						<br/>
+						Java<br/>
+						Obj-Oriented
+					</p>
 				</div>
 
-				<div id="roll_call" class="projects_bttm_row">
-					<a href="">
-						<img src="assets/images/roll_call.png" />
-					</a>
+				<div id="roll_call" class="projects_bttm_row project_tags" onclick="location.href='https://github.com/Spoupovitch/Roll-Call';">
+					<p class="tag_text">
+						Roster Segmentation<br/>
+						<br/>
+						HTML CSS<br/>
+						PHP<br/>
+						JavaScript
+					</p>
 				</div>
 
-				<div id="word_search" class="projects_bttm_row">
-					<a href="">
-						<img src="assets/images/word_search.png" />
-					</a>
+				<div id="word_search" class="projects_bttm_row project_tags" onclick="location.href='https://github.com/Spoupovitch/Word-Search';">
+					<p class="tag_text">
+						Word Search Solver<br/>
+						<br/>
+						C<br/>
+						Command Line
+					</p>
 				</div>
 			</div><!-- end projects container -->
 		</div><!-- end experience container -->
-		<h3>
-			Get in touch
-		</h3>
+
+		<div class="form_wrapper">
+			<form class="form" method="post" action="">
+				<h3 id="f_header">
+					Get in touch
+				</h3>
+				<input id="f_name" type="text" name="name" placeholder="Name" />
+				<input id="f_email" type="text" name="email" placeholder="Email" />
+				<input id="f_subject" type="text" name="subject" placeholder="Subject" />
+				<textarea id="f_message" name="message" placeholder="..."></textarea>
+				<input id="f_submit" type="button" name="submit_btn" value="Send"/>
+			</form>
+		</div>
+
+		<footer>
+			<div class="icon_bg">
+				<i class="fab fa-linkedin"></i>
+			</div>
+			<div class="icon_bg">
+				<i class="fab fa-github-alt"></i>
+			</div>
+		</footer>
+
 	</div><!-- end city container -->
-
-	<footer>
-
-	</footer>
 
 
 	<!-- load screen -->
