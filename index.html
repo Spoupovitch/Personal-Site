@@ -3,11 +3,14 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pontano+Sans">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/resume_style.css" />
+
+	<header name="Access-Control-Allow-Origin" value="*" />
 
 	<title>Trevor Jenkins - Web Development, Software Engineering</title>
 </head>
@@ -186,24 +189,23 @@
 
 		
 		<div class="form_wrapper">
-			<form id="form" method="post" action="assets/php/email.php">
+			<form id="form" method="post" action="https://docs.google.com/forms/d/1Vure3Se8Lal_L5i8EeSOQNeBA_p2cEvbmskJNTm6v3k/formResponse?">
 				<h3 id="f_header">
 					Get in touch
 				</h3>
-				<input id="f_name" type="text" name="name" placeholder="Name" required/>
-				<input id="f_email" type="text" name="email" placeholder="Email" required/>
-				<input id="f_subject" type="text" name="subject" placeholder="Subject" />
-				<textarea id="f_message" name="message" placeholder="..." required></textarea>
+				<input id="f_name" type="text" name="entry.1345652143" placeholder="Name" required/>
+				<input id="f_email" type="text" name="entry.1578265497" placeholder="Email" required/>
+				<input id="f_subject" type="text" name="entry.649914126" placeholder="Subject" />
+				<textarea id="f_message" name="entry.1417475288" placeholder="..." required></textarea>
 				<button id="f_submit" type="submit">Send</button>
 				<div id="f_prompt"></div>
 			</form>
 		</div>
-
 		<footer>
-			<div class="icon_bg">
+			<div class="icon_bg" onclick="location.href='https://';">
 				<i class="fab fa-linkedin"></i>
 			</div>
-			<div class="icon_bg">
+			<div class="icon_bg" onclick="location.href='https://github.com/Spoupovitch/';">
 				<i class="fab fa-github-alt"></i>
 			</div>
 		</footer>

@@ -12,7 +12,7 @@ setTimeout(function(){
 //hide scroll bar
 document.documentElement.style.overflowY = 'hidden';
 
-const loadTime = 1750;
+const loadTime = 1750-1000;
 //load screen animation
 const loadingDiv = document.querySelectorAll("div.load_screen");
 function moveLoadScreen() {
@@ -22,7 +22,7 @@ function moveLoadScreen() {
 		});
 		document.documentElement.style.overflowY = 'visible';
 		document.body.scrollTop = document.documentElement.scrollTop = 0;
-	}, loadTime-00);
+	}, loadTime);
 	animateBio();
 }
 window.addEventListener('load', moveLoadScreen());
@@ -149,9 +149,13 @@ $('.dark-mode').delay(300).animate({'opacity':'1'}, 800);
 $('.light-mode').delay(300).animate({'opacity':'1'}, 800);
 
 $(window).scroll(function () {
-	parallaxScroll();
+	delayExec(parallaxScroll());
 });
 function parallaxScroll() {
+	if (($(window).width() < 1900)
+	|| ($(window).height() < 780)){
+		return;
+	}
 	var wScroll = $(window).scrollTop();
 	
 	$('#mid_banner').css('transform', 'translateY(' + -(wScroll / (14610 / $(window).height()) ) + 'px)');
@@ -161,17 +165,40 @@ function parallaxScroll() {
 $(function() {
 	var form = $('#form');
 	var formPrompt = $('#f_prompt');
-
+	
 	$(form).submit(function(event) {
 		//stop form submission
 		event.preventDefault();
-	
+		
 		var formData = $(form).serialize();
 		$.ajax({
 			type: 'POST',
-			url: 'assets/php/email.php',
-			data: formData
-		})
+			url: $('form').attr('action'),
+			data: formData,
+			dataType: 'json'
+		});
+
+		console.log('wtf');
+
+		$(formPrompt).text('Message sent, thank you!');
+
+		$(formPrompt).removeClass('f_error');
+		$(formPrompt).addClass('f_success');
+		$(formPrompt).addClass('hide');
+		
+		//clear prompt for reuse
+		setTimeout(function(){
+			$(formPrompt).text('');
+			$(formPrompt).removeClass('hide');
+		}, 15000);
+	
+		//clear form data
+		$('#f_name').val('');
+		$('#f_email').val('');
+		$('#f_subject').val('');
+		$('#f_message').val('');
+
+		/*
 		.done(function(res) {
 			$(formPrompt).removeClass('f_error');
 			$(formPrompt).addClass('f_success');
@@ -211,5 +238,7 @@ $(function() {
 				$(formPrompt).removeClass('hide');
 			}, 15000);
 		});
+		*/
 	});
+	
 });
