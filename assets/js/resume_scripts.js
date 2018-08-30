@@ -148,18 +148,37 @@ window.addEventListener('scroll', delayExec(slideProjects));
 $('.dark-mode').delay(300).animate({'opacity':'1'}, 800);
 $('.light-mode').delay(300).animate({'opacity':'1'}, 800);
 
+//parallax scroll handler
 $(window).scroll(function () {
 	delayExec(parallaxScroll());
 });
 function parallaxScroll() {
 	if (($(window).width() < 1900)
-	|| ($(window).height() < 780)){
+	|| ($(window).height() < 780)) {
 		return;
 	}
 	var wScroll = $(window).scrollTop();
 	
-	$('#mid_banner').css('transform', 'translateY(' + -(wScroll / (14610 / $(window).height()) ) + 'px)');
+	$('#mid_banner').css('transform', 'translateY('
+	+ -( wScroll / (14610 / $(window).height()) ) + 'px)');
 }
+
+//refresh on resize if dimensions cross threshold, accomodate parallax
+$(document).ready(function() {
+	var oldWidth = $(window).width();
+	var oldHeight = $(window).height();
+	console.log("old" + oldWidth, oldHeight);
+
+	$(window).resize(function() {
+		console.log("new" + $(window).width(), $(window).height());
+		if ((oldWidth >= 1900 && $(window).width() < 1900)
+		|| (oldHeight >= 880 && $(window).height() < 880)) {
+			document.location.reload(true);
+		}
+		oldWidth = $(window).width();
+		oldHeight = $(window).height();
+	});
+});
 
 //email handler
 $(function() {
@@ -228,8 +247,8 @@ $(function() {
 				$(formPrompt).text(data.responseText);
 			}
 			else {
-				$(formPrompt).text('Uh oh! Something went wrong, your message could'
-					+ ' not be sent...');
+				$(formPrompt).text('Uh oh! Something went wrong, your message'
+				+ 'could not be sent...');
 			}
 			
 			//clear prompt for reuse
