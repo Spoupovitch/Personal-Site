@@ -9,10 +9,10 @@ setTimeout(function(){
 	clearInterval(runID);
 }, 1500);
 
-//hide scroll bar
+//hide scroll bar during loading
 document.documentElement.style.overflowY = 'hidden';
 
-const loadTime = 1750-1000;
+const loadTime = 1750;
 //load screen animation
 const loadingDiv = document.querySelectorAll("div.load_screen");
 function moveLoadScreen() {
@@ -20,7 +20,9 @@ function moveLoadScreen() {
 		loadingDiv.forEach((loadScreen) => {
 			loadScreen.classList.add('remove');
 		});
+		//reveal scroll bar
 		document.documentElement.style.overflowY = 'visible';
+		//scroll to top on page poad
 		document.body.scrollTop = document.documentElement.scrollTop = 0;
 	}, loadTime);
 	animateBio();
@@ -142,7 +144,9 @@ function slideProjects(e) {
 window.addEventListener('scroll', delayExec(slideProjects));
 
 
-//jQuery
+/*
+jQuery
+*/
 
 //fade elements in on page load
 $('.dark-mode').delay(300).animate({'opacity':'1'}, 800);
@@ -167,10 +171,8 @@ function parallaxScroll() {
 $(document).ready(function() {
 	var oldWidth = $(window).width();
 	var oldHeight = $(window).height();
-	console.log("old" + oldWidth, oldHeight);
 
 	$(window).resize(function() {
-		console.log("new" + $(window).width(), $(window).height());
 		if ((oldWidth >= 1900 && $(window).width() < 1900)
 		|| (oldHeight >= 880 && $(window).height() < 880)) {
 			document.location.reload(true);

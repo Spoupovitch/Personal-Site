@@ -323,6 +323,7 @@ small screen styling
 		font-weight: bold;
 		text-transform: uppercase;
 		color: inherit;
+		cursor: pointer;
 	}
 	#f_submit:active {
 		border: #3C80EF inset;
@@ -391,9 +392,8 @@ small screen styling
 /*
 medium screen styles
 */
-@media screen
-and (min-width: 601px) and (max-width: 1899px)
- and (max-height: 779px) {
+@media screen and (min-width: 601px) and (max-width: 1899px),
+screen and (min-width: 601px) and (min-height: 90px) and (max-height: 779px) {
 	/*
 	general styles
 	*/
@@ -734,6 +734,7 @@ and (min-width: 601px) and (max-width: 1899px)
 		font-weight: bold;
 		text-transform: uppercase;
 		color: inherit;
+		cursor: pointer;
 	}
 	#f_submit:active {
 		border: #3C80EF inset;
@@ -802,7 +803,7 @@ and (min-width: 601px) and (max-width: 1899px)
 /*
 big screen styling
 */
-@media screen and (min-width: 1900px) and ( min-height: 780px) {
+@media screen and (min-width: 1900px) and (min-height: 780px) {
 	/*
 	general styles
 	*/
@@ -1161,6 +1162,7 @@ big screen styling
 		font-weight: bold;
 		text-transform: uppercase;
 		color: inherit;
+		cursor: pointer;
 	}
 	#f_submit:active {
 		border: #3C80EF inset;
