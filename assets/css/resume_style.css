@@ -946,17 +946,33 @@ big screen styling
 	.intro {
 		padding: 5% 3% 10% 3%;
 		margin: 2.5% 2% 0 2%;
+		justify-items: center;
 		display: grid;
 		grid-template-columns: 15% 30% 15% 40%;
 		grid-template-areas:
 			". prof_pic . bio";
 	}
-	.profile_pic {
+	.profile {
 		padding: 1em;
 		grid-area: prof_pic;
 		text-align: center;
 		/*background-color: rgba(150, 150, 150, .25);*/
 		border-radius: .75em;
+	}
+	#profile_pic {
+		margin: 0 0 2.5% 0;
+		min-width: 12.5em;
+		min-height: 12.5em;
+		width: 17.5em;
+		height: 17.5em;
+		border: .25em solid #E5E5E5;
+		border-radius: 50%;
+	}
+	#profile_pic.dark-mode {
+		background-color: #353535;
+	}
+	#profile_pic.light-mode {
+		background-image: url("../images/light_profile_pic.png");
 	}
 	.bio {
 		padding: 1em;

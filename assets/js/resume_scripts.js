@@ -76,11 +76,12 @@ function animateBio() {
 
 //toggle site theme
 function toggleBG() {
-	var body, sky, banner, city;
+	var body, sky, banner, city, profile_pic;
 	body = document.getElementById("body");
 	sky = document.getElementById("sky");
 	banner = document.getElementById("mid_banner");
 	city = document.getElementById("city");
+	profile_pic = document.getElementById("profile_pic");
 
 	var skyTheme = sky.className;
 
@@ -89,12 +90,14 @@ function toggleBG() {
 		sky.className = "light-mode";
 		banner.className = "light-mode";
 		city.className = "light-mode";
+		profile_pic.className = "light-mode";
 	}
 	else {
 		body.className = "dark-mode";
 		sky.className = "dark-mode";
 		banner.className = "dark-mode";
 		city.className = "dark-mode";
+		profile_pic.className = "dark-mode";
 	}
 }
 
