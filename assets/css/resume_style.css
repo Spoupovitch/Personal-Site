@@ -386,6 +386,7 @@ small screen styling
 	}
 	.fa-linkedin {
 		color: blue;
+		cursor: pointer;
 	}
 	.fa-github-alt{
 		color: black;
@@ -1135,6 +1136,7 @@ big screen styling
 	}
 	.fa-linkedin {
 		color: blue;
+		cursor: pointer;
 	}
 	.fa-github-alt{
 		color: black;
