@@ -1,7 +1,7 @@
 //load spinner animation
 const spinner = document.getElementById("spinner");
-var ctr = 0;
-var runID = setInterval(function() {
+let ctr = 0;
+let runID = setInterval(function() {
 	ctr -= 5;
 	spinner.style.transform = 'scale(2) rotate(' + ctr + 'deg)';
 }, 15);
@@ -31,7 +31,7 @@ window.addEventListener('load', moveLoadScreen());
 
 //preload themes
 function preloadToggle() {
-	var runID = setInterval(function() {
+	let runID = setInterval(function() {
 		toggleBG();
 	}, 400);
 
@@ -49,25 +49,26 @@ function animateBio() {
 	const bioSwe1 = document.getElementById("bio_swe_1");
 	const bioSwe2 = document.getElementById("bio_swe_2");
 
-	//2s delay
-	var staggerBio = 2500;
+	let staggerBio = 2500;
+
+	//delayed 2.5s
 	setTimeout(function() {
 		bioWeb1.classList.remove('hide');
 	}, staggerBio);
 
-	//3s delay
+	//delayed 3.5s
 	staggerBio += 1000;
 	setTimeout(function() {
 		bioWeb2.classList.remove('hide');
 	}, staggerBio);
 
-	//5s delay
+	//delayed 5.5s
 	staggerBio += 2000;
 	setTimeout(function() {
 		bioSwe1.classList.remove('hide');
 	}, staggerBio);
 
-	//6s delay
+	//delayed 6.5s
 	staggerBio += 1000;
 	setTimeout(function() {
 		bioSwe2.classList.remove('hide');
@@ -76,14 +77,15 @@ function animateBio() {
 
 //toggle site theme
 function toggleBG() {
-	var body, sky, banner, city, profile_pic;
+	let body, sky, banner, city, profile_pic;
 	body = document.getElementById("body");
 	sky = document.getElementById("sky");
 	banner = document.getElementById("mid_banner");
 	city = document.getElementById("city");
 	profile_pic = document.getElementById("profile_pic");
 
-	var skyTheme = sky.className;
+	//use sky as representative to get current mode for all
+	let skyTheme = sky.className;
 
 	if (skyTheme === "dark-mode") {
 		body.className = "light-mode";
@@ -101,19 +103,18 @@ function toggleBG() {
 	}
 }
 
-
 //bounce function calls for scroll listener
 function delayExec(func, wait = 15, immediate = true) {
-	var timeout;
+	let timeout;
 	return function() {
-		var context = this, args = arguments;
-		var later = function() {
+		let context = this, args = arguments;
+		let later = function() {
 			timeout = null;
 			if (!immediate) {
 				func.apply(context, args);
 			}
 		};
-		var callNow = (immediate && !timeout);
+		let callNow = (immediate && !timeout);
 		clearTimeout(timeout);
 		timeout = setTimeout(later, wait);
 		if (callNow) {
@@ -124,17 +125,17 @@ function delayExec(func, wait = 15, immediate = true) {
 
 //handle animation for projects grid rows
 function slideProjects(e) {
-	const projectsRow = document.querySelectorAll(".projects div");
+	let projectsRow = document.querySelectorAll(".projects div");
 	projectsRow.forEach((slideElem) => {
-		var elemHeight = slideElem.clientHeight;
+		let elemHeight = slideElem.clientHeight;
 
 		//set to slide in when halfway in frame
-		const slideInAt = window.scrollY + screen.height + elemHeight / 2;
+		let slideInAt = window.scrollY + screen.height + elemHeight / 2;
 		//get bottom of slide element
 		const elemBottom = slideElem.offsetTop + elemHeight;
 
-		const isHalfShown = (slideInAt > slideElem.offsetTop + elemHeight * 1.5);
-		const isNotScrolledPast = (window.scrollY < elemBottom);
+		let isHalfShown = (slideInAt > slideElem.offsetTop + elemHeight * 1.5);
+		let isNotScrolledPast = (window.scrollY < elemBottom);
 
 		if (isHalfShown && isNotScrolledPast) {
 			slideElem.classList.add('active');
@@ -164,16 +165,16 @@ function parallaxScroll() {
 	|| ($(window).height() < 780)) {
 		return;
 	}
-	var wScroll = $(window).scrollTop();
+	let wScroll = $(window).scrollTop();
 	
 	$('#mid_banner').css('transform', 'translateY('
-	+ -( wScroll / (14610 / $(window).height()) ) + 'px)');
+		+ -( wScroll / (14610 / $(window).height()) ) + 'px)');
 }
 
 //refresh on resize if dimensions cross threshold, accomodate parallax
 $(document).ready(function() {
-	var oldWidth = $(window).width();
-	var oldHeight = $(window).height();
+	let oldWidth = $(window).width();
+	let oldHeight = $(window).height();
 
 	$(window).resize(function() {
 		if ((oldWidth >= 1900 && $(window).width() < 1900)
@@ -189,11 +190,11 @@ $(document).ready(function() {
 $(function() {
 	var form = $('#form');
 	var formPrompt = $('#f_prompt');
-	
+
 	$(form).submit(function(event) {
 		//stop form submission
 		event.preventDefault();
-		
+
 		var formData = $(form).serialize();
 		$.ajax({
 			type: 'POST',
@@ -202,20 +203,18 @@ $(function() {
 			dataType: 'json'
 		});
 
-		console.log('wtf');
-
 		$(formPrompt).text('Message sent, thank you!');
 
 		$(formPrompt).removeClass('f_error');
 		$(formPrompt).addClass('f_success');
 		$(formPrompt).addClass('hide');
-		
+
 		//clear prompt for reuse
-		setTimeout(function(){
+		setTimeout(function() {
 			$(formPrompt).text('');
 			$(formPrompt).removeClass('hide');
 		}, 15000);
-	
+
 		//clear form data
 		$('#f_name').val('');
 		$('#f_email').val('');
@@ -227,7 +226,7 @@ $(function() {
 			$(formPrompt).removeClass('f_error');
 			$(formPrompt).addClass('f_success');
 			$(formPrompt).addClass('hide');
-			
+
 			//clear prompt for reuse
 			setTimeout(function(){
 				$(formPrompt).text('');
@@ -235,7 +234,7 @@ $(function() {
 			}, 15000);
 
 			$(formPrompt).text(res);
-				
+
 			//clear form data
 			$('#f_name').val('');
 			$('#f_email').val('');
@@ -255,7 +254,7 @@ $(function() {
 				$(formPrompt).text('Uh oh! Something went wrong, your message'
 				+ 'could not be sent...');
 			}
-			
+
 			//clear prompt for reuse
 			setTimeout(function(){
 				$(formPrompt).text('');
