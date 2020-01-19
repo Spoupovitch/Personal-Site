@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pontano+Sans">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="assets/css/resume_style.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/portfolio_style.css" />
 
 	<title>Trevor Jenkins - Web Development, Software Engineering</title>
 </head>
@@ -19,8 +19,8 @@
 		<div class="navbar">
 
 			<!-- toggle light/dark theme -->
-			<button id="light-dark_btn" title="Toggle dark/light mode" onclick="toggleBG()">
-				<i class="fas fa-sync"></i>
+			<button id="light-dark_btn" class="light-mode" title="Toggle dark/light mode" onclick="toggleBG()">
+				<i id="light-dark_icon" class="fas fa-moon"></i>
 			</button>
 
 		</div><!-- end navbar -->
@@ -36,7 +36,7 @@
 					Hi, I'm Trevor.
 				</p>
 				<p>
-					I like working with software and on the web.
+					I develop software and web apps.
 				</p>
 			</div>
 
@@ -50,8 +50,8 @@
 					<p>
 						When developing on the front end, I use JavaScript and its libraries
 						to bring pages to life.&nbsp On the backend, I've worked with
-						databases and RESTful web services to facilitate data storage and
-						manipulation.&nbsp I enjoy the process of design whether it's on the
+						relational databases and RESTful web services for data storage, transfer
+						and manipulation.&nbsp I enjoy the process of design whether it's on the
 						server or the client.
 					</p>
 				</div>
@@ -89,7 +89,7 @@
 						University of Central Florida
 					</p>
 					<p>
-						Computer Science BS
+						Computer Science B.S.
 					</p>
 				</div>
 				<div id="languages">
@@ -103,10 +103,13 @@
 					<p>
 						HTML &nbsp CSS &nbsp JavaScript
 					</p>
+					<p>
+						Angular &nbsp TypeScript
+					</p>
 				</div>
 				<div id="tools">
 					<h3>
-						Tools
+						Tools / Libraries
 					</h3>
 					<br/>
 					<p>
@@ -192,7 +195,7 @@
 		<div class="form_wrapper">
 			<form id="form" method="post" action="https://docs.google.com/forms/d/1Vure3Se8Lal_L5i8EeSOQNeBA_p2cEvbmskJNTm6v3k/formResponse?">
 				<h3 id="f_header">
-					Get in touch
+					Get in touch!
 				</h3>
 				<input id="f_name" type="text" name="entry.1345652143" placeholder="Name" required/>
 				<input id="f_email" type="text" name="entry.1578265497" placeholder="Email" required/>
@@ -221,6 +224,6 @@
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/js/resume_scripts.js"></script>
+	<script type="text/javascript" src="assets/js/portfolio_scripts.js"></script>
 </body>
 </html>
