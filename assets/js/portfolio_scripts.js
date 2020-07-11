@@ -153,11 +153,6 @@ function slideProjects(e) {
 }
 window.addEventListener('scroll', delayExec(slideProjects));
 
-
-/*
-jQuery
-*/
-
 //fade elements in on page load
 $('.dark-mode').delay(300).animate({'opacity':'1'}, 800);
 $('.light-mode').delay(300).animate({'opacity':'1'}, 800);
@@ -226,48 +221,6 @@ $(function() {
 		$('#f_email').val('');
 		$('#f_subject').val('');
 		$('#f_message').val('');
-
-		/*
-		.done(function(res) {
-			$(formPrompt).removeClass('f_error');
-			$(formPrompt).addClass('f_success');
-			$(formPrompt).addClass('hide');
-
-			//clear prompt for reuse
-			setTimeout(function(){
-				$(formPrompt).text('');
-				$(formPrompt).removeClass('hide');
-			}, 15000);
-
-			$(formPrompt).text(res);
-
-			//clear form data
-			$('#f_name').val('');
-			$('#f_email').val('');
-			$('#f_subject').val('');
-			$('#f_message').val('');
-		})
-		.fail(function(data) {
-			$(formPrompt).addClass('f_error');
-			$(formPrompt).removeClass('f_success');
-			$(formPrompt).addClass('hide');
-
-			//set prompt text
-			if (data.responseText !== '') {
-				$(formPrompt).text(data.responseText);
-			}
-			else {
-				$(formPrompt).text('Uh oh! Something went wrong, your message'
-				+ 'could not be sent...');
-			}
-
-			//clear prompt for reuse
-			setTimeout(function(){
-				$(formPrompt).text('');
-				$(formPrompt).removeClass('hide');
-			}, 15000);
-		});
-		*/
 	});
 	
 });
