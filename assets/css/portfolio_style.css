@@ -137,7 +137,7 @@ top content styles
 	border-radius: .75em;
 }
 #profile_pic.dark-mode {
-	background-color: #353535;
+	background-image: url("../images/dark_profile_pic.png");
 }
 #profile_pic.light-mode {
 	background-image: url("../images/light_profile_pic.png");
